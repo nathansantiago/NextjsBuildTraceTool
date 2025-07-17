@@ -1,0 +1,26 @@
+{
+  "name": "@app/trace-tool",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "clean": "pnpx rimraf .dist node_modules .next",
+    "clean:next": "pnpx rimraf .next",
+    "start": "pnpm run clean:next && next dev",
+    "build": "next build",
+    "prod": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "next": "15.4.1"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4"
+  }
+}
