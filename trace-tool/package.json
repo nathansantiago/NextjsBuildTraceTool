@@ -6,6 +6,7 @@
     "clean": "pnpx rimraf .dist node_modules .next",
     "clean:next": "pnpx rimraf .next",
     "start": "pnpm run clean:next && next dev",
+    "start:turbo": "pnpm run clean:next && next dev --turbopack",
     "build": "next build",
     "prod": "next start",
     "lint": "next lint"
