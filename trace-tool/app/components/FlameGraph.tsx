@@ -12,8 +12,12 @@ export function FlameGraph({ data }: { data: FlameGraphData }) {
 	useEffect(() => {
 		if (!ref.current || !data) return;
 
+		// Clear any existing content
+		d3.select(ref.current).selectAll("*").remove();
+
+		// Calculate responsive width based on container
 		const containerWidth = ref.current.offsetWidth;
-		const width = Math.max(containerWidth, 1400);
+		const width = Math.max(containerWidth, 1400); // Minimum 1400px for better readability
 
 		const chart = flamegraph()
 			.width(width)
@@ -25,8 +29,9 @@ export function FlameGraph({ data }: { data: FlameGraphData }) {
 		d3.select(ref.current).datum(data).call(chart);
 
 		return () => {
-			if (chart.destroy) {
-				chart.destroy();
+			// Clean up by removing all child elements
+			if (ref.current) {
+				d3.select(ref.current).selectAll("*").remove();
 			}
 		};
 	}, [data]);
